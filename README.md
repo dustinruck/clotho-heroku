@@ -2,6 +2,10 @@
 Repository for Web Dev II Project
 
 
+
+web: npm run build && node index.js
+
+
 - clotho
   - notes
   - project

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    "start": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build && react-scripts start && npm start"
     },
   "author": "",
   "license": "ISC",

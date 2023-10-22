@@ -6,18 +6,11 @@ const cors = require('cors');
 
 // app.use("/", routes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/build")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
-  
-  // const PORT = process.env.PORT || 5000;
-  // app.listen(PORT, () => {
-  //   console.log(`Server is running on port ${PORT}`);
-  // });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.use(express.json());
 app.use(cors());
@@ -82,6 +75,11 @@ db.sequelize.sync().then(() => {
 .catch((err) => {
     console.error("Unable to connect to database : ", err);
     process.exit(1);
+  });
+
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
   });
 
 

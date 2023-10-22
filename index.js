@@ -4,7 +4,7 @@ const app = express();
 const db = require('./models');
 const cors = require('cors');
 
-app.use("/", routes);
+// app.use("/", routes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
